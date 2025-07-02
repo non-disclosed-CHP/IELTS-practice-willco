@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IELTS Vocabulary Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8">IELTS Vocabulary: Fill in the Blanks</h1>
+
+    <div id="game" class="space-y-6"></div>
+
+    <div class="text-center mt-10">
+      <button onclick="checkAnswers()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow">
+        Submit Answers
+      </button>
+    </div>
+
+    <div id="score" class="text-xl font-semibold text-center mt-6"></div>
+    <div id="corrections" class="mt-8 space-y-4"></div>
+  </div>
+
+  <script>
+    const data = [
+      ["The scientist made a ___ discovery.", "crucial", ["casual", "irrelevant", "crucial", "minor"]],
+      ["His explanation was very ___ to the topic.", "relevant", ["boring", "relevant", "noisy", "unfair"]],
+      ["The ___ climate caused crop failure.", "harsh", ["harsh", "gentle", "pleasant", "dull"]],
+      ["She gave a ___ performance on stage.", "remarkable", ["remarkable", "dull", "awkward", "quiet"]],
+      ["The medicine had a ___ effect on his health.", "beneficial", ["beneficial", "toxic", "minor", "irrelevant"]],
+      ["They reached a ___ after hours of negotiation.", "consensus", ["argument", "conflict", "consensus", "battle"]],
+      ["The painting was truly ___ in style.", "unique", ["unique", "common", "typical", "standard"]],
+      ["The storm caused ___ damage.", "extensive", ["minor", "hidden", "extensive", "tiny"]],
+      ["He provided a very ___ account of the incident.", "accurate", ["vague", "confusing", "accurate", "false"]],
+      ["Her mood became increasingly ___.", "volatile", ["cheerful", "stable", "volatile", "calm"]],
+      ["The food was ___ and not very tasty.", "bland", ["delicious", "spicy", "bland", "rich"]],
+      ["He maintained a ___ expression.", "neutral", ["happy", "neutral", "angry", "excited"]],
+      ["The concept was too ___ to understand.", "abstract", ["clear", "easy", "abstract", "plain"]],
+      ["She handled the task with great ___.", "efficiency", ["efficiency", "clumsiness", "indifference", "delay"]],
+      ["The ___ nature of the job worried him.", "tedious", ["exciting", "tedious", "easy", "fun"]],
+      ["He was known for his ___ behavior.", "eccentric", ["normal", "eccentric", "boring", "average"]],
+      ["They used a more ___ approach to the problem.", "innovative", ["old", "conventional", "innovative", "lazy"]],
+      ["The results were ___ to expectations.", "contrary", ["contrary", "similar", "identical", "predictable"]],
+      ["Her ___ attitude made things worse.", "hostile", ["friendly", "helpful", "hostile", "warm"]],
+      ["The ___ of the machine surprised us.", "durability", ["fragility", "durability", "instability", "weakness"]],
+      ["This book is ___ for IELTS prep.", "essential", ["optional", "essential", "useless", "extra"]],
+      ["The actor's career was in a ___ state.", "declining", ["growing", "declining", "stable", "rising"]]
+    ];
+
+    function shuffle(array) {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    }
+
+    const gameContainer = document.getElementById("game");
+
+    data.forEach((item, index) => {
+      const shuffledOptions = shuffle([...item[2]]);
+      const questionHTML = `
+        <div class="bg-white p-5 rounded-lg shadow">
+          <label class="block text-lg font-medium mb-2">${index + 1}. ${item[0]}</label>
+          <select id="q${index}" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            ${shuffledOptions.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+          </select>
+        </div>
+      `;
+      gameContainer.innerHTML += questionHTML;
+    });
+
+    function checkAnswers() {
+      let score = 0;
+      let resultsHTML = '';
+      data.forEach((item, index) => {
+        const selected = document.getElementById("q" + index).value;
+        const correct = item[1];
+        const isCorrect = selected === correct;
+        if (isCorrect) score++;
+
+        resultsHTML += `
+          <div class="p-4 rounded-lg ${isCorrect ? 'bg-green-100 border border-green-400' : 'bg-red-100 border border-red-400'}">
+            <p class="font-semibold">${index + 1}. ${item[0].replace('___', `<span class="underline">${selected}</span>`)}</p>
+            ${!isCorrect ? `<p class="text-sm mt-1">✅ Correct answer: <span class="font-bold">${correct}</span></p>` : ''}
+          </div>
+        `;
+      });
+
+      document.getElementById("score").innerText = `You scored ${score} out of ${data.length}`;
+      document.getElementById("corrections").innerHTML = resultsHTML;
+    }
+  </script>
+
+  <!-- Home Button -->
+  <a href="index.html" class="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg transition-all text-sm font-semibold">
+    🏠 Home
+  </a>
+</body>
+</html>

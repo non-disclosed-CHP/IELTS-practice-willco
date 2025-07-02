@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test Estimator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .question {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .result {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .quiz-container {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>IELTS Test Estimator</h1>
+    <p>Answer the following questions based on your understanding of the IELTS exam.</p>
+
+    <div class="quiz-container">
+        <form id="quizForm">
+            <!-- Listening Section -->
+            <h2>Listening Section</h2>
+            <div class="question">
+                <label for="q1">1. In the IELTS Listening test, how many sections are there?</label><br>
+                <input type="radio" name="q1" value="1"> 4
+                <input type="radio" name="q1" value="0"> 3
+                <input type="radio" name="q1" value="0"> 5
+            </div>
+
+            <div class="question">
+                <label for="q2">2. What type of questions will you encounter in the Listening test?</label><br>
+                <input type="radio" name="q2" value="1"> Multiple-choice, matching, and short answer
+                <input type="radio" name="q2" value="0"> Essay writing and descriptive questions
+                <input type="radio" name="q2" value="0"> Listening to a lecture only
+            </div>
+
+            <div class="question">
+                <label for="q3">3. How many times is the recording played in the Listening test?</label><br>
+                <input type="radio" name="q3" value="1"> Once
+                <input type="radio" name="q3" value="0"> Twice
+                <input type="radio" name="q3" value="0"> Three times
+            </div>
+
+            <!-- Reading Section -->
+            <h2>Reading Section</h2>
+            <div class="question">
+                <label for="q4">4. What is the total number of questions in the IELTS Reading section?</label><br>
+                <input type="radio" name="q4" value="1"> 40
+                <input type="radio" name="q4" value="0"> 30
+                <input type="radio" name="q4" value="0"> 50
+            </div>
+
+            <div class="question">
+                <label for="q5">5. In the IELTS Reading section, how much time is allocated?</label><br>
+                <input type="radio" name="q5" value="1"> 60 minutes
+                <input type="radio" name="q5" value="0"> 90 minutes
+                <input type="radio" name="q5" value="0"> 120 minutes
+            </div>
+
+            <div class="question">
+                <label for="q6">6. What types of reading materials are used in the IELTS Reading section?</label><br>
+                <input type="radio" name="q6" value="1"> Articles, advertisements, and charts
+                <input type="radio" name="q6" value="0"> Short stories and novels
+                <input type="radio" name="q6" value="0"> Fictional texts only
+            </div>
+
+            <!-- Writing Section -->
+            <h2>Writing Section</h2>
+            <div class="question">
+                <label for="q7">7. How many tasks are there in the IELTS Writing section?</label><br>
+                <input type="radio" name="q7" value="1"> 2
+                <input type="radio" name="q7" value="0"> 3
+                <input type="radio" name="q7" value="0"> 1
+            </div>
+
+            <div class="question">
+                <label for="q8">8. In Writing Task 2, what is required?</label><br>
+                <input type="radio" name="q8" value="1"> A formal essay presenting an argument or opinion
+                <input type="radio" name="q8" value="0"> A personal letter
+                <input type="radio" name="q8" value="0"> A summary of a book
+            </div>
+
+            <div class="question">
+                <label for="q9">9. How long should your response be in Writing Task 1?</label><br>
+                <input type="radio" name="q9" value="1"> At least 150 words
+                <input type="radio" name="q9" value="0"> At least 200 words
+                <input type="radio" name="q9" value="0"> At least 250 words
+            </div>
+
+            <div class="question">
+                <label for="q10">10. What is the most important aspect of a Task 2 essay?</label><br>
+                <input type="radio" name="q10" value="1"> Clear structure and well-supported arguments
+                <input type="radio" name="q10" value="0"> Personal anecdotes and informal tone
+                <input type="radio" name="q10" value="0"> Using as many complex words as possible
+            </div>
+
+            <!-- Speaking Section -->
+            <h2>Speaking Section</h2>
+            <div class="question">
+                <label for="q11">11. How long does the IELTS Speaking test last?</label><br>
+                <input type="radio" name="q11" value="1"> 11-14 minutes
+                <input type="radio" name="q11" value="0"> 20-25 minutes
+                <input type="radio" name="q11" value="0"> 30-40 minutes
+            </div>
+
+            <div class="question">
+                <label for="q12">12. What is the first part of the Speaking test?</label><br>
+                <input type="radio" name="q12" value="1"> Introduction and interview
+                <input type="radio" name="q12" value="0"> Speaking about a given topic
+                <input type="radio" name="q12" value="0"> Discussing complex academic topics
+            </div>
+
+            <div class="question">
+                <label for="q13">13. How is the Speaking test assessed?</label><br>
+                <input type="radio" name="q13" value="1"> Fluency, vocabulary, and pronunciation
+                <input type="radio" name="q13" value="0"> Grammar and writing skills only
+                <input type="radio" name="q13" value="0"> Listening comprehension only
+            </div>
+
+            <div class="question">
+                <label for="q14">14. In the Speaking test, you are expected to speak for how long on the given topic in Part 2?</label><br>
+                <input type="radio" name="q14" value="1"> 2 minutes
+                <input type="radio" name="q14" value="0"> 1 minute
+                <input type="radio" name="q14" value="0"> 5 minutes
+            </div>
+
+            <div class="question">
+                <label for="q15">15. In which section of the Speaking test are you asked to express your opinion on a variety of topics?</label><br>
+                <input type="radio" name="q15" value="1"> Part 3
+                <input type="radio" name="q15" value="0"> Part 1
+                <input type="radio" name="q15" value="0"> Part 2
+            </div>
+
+            <!-- General Knowledge & Strategy Questions -->
+            <h2>General Knowledge & Strategy</h2>
+            <div class="question">
+                <label for="q16">16. How much time is allowed for IELTS Writing Task 1?</label><br>
+                <input type="radio" name="q16" value="1"> 20 minutes
+                <input type="radio" name="q16" value="0"> 25 minutes
+                <input type="radio" name="q16" value="0"> 30 minutes
+            </div>
+
+            <div class="question">
+                <label for="q17">17. How should you approach a Multiple Choice question in the Listening section?</label><br>
+                <input type="radio" name="q17" value="1"> Listen carefully to all options before answering
+                <input type="radio" name="q17" value="0"> Answer immediately without listening to all options
+                <input type="radio" name="q17" value="0"> Guess the answer if you're unsure
+            </div>
+
+            <div class="question">
+                <label for="q18">18. Which is the best strategy for the IELTS Speaking test?</label><br>
+                <input type="radio" name="q18" value="1"> Provide clear, well-structured answers
+                <input type="radio" name="q18" value="0"> Speak quickly without pausing
+                <input type="radio" name="q18" value="0"> Repeat the questions in your answer
+            </div>
+
+            <div class="question">
+                <label for="q19">19. In the IELTS Listening section, how can you improve your accuracy?</label><br>
+                <input type="radio" name="q19" value="1"> Practice listening to different accents
+                <input type="radio" name="q19" value="0"> Ignore background noise during the test
+                <input type="radio" name="q19" value="0"> Avoid taking notes while listening
+            </div>
+
+            <div class="question">
+                <label for="q20">20. What is the most effective way to improve your IELTS Reading score?</label><br>
+                <input type="radio" name="q20" value="1"> Practice skimming and scanning techniques
+                <input type="radio" name="q20" value="0"> Focus solely on vocabulary
+                <input type="radio" name="q20" value="0"> Read only long passages to improve speed
+            </div>
+
+            <button type="button" class="btn" onclick="calculateScore()">Submit</button>
+        </form>
+
+        <div id="result" class="result">
+            <p id="bandResult"></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let totalQuestions = 20; // Total number of questions
+            let correctAnswers = 0;
+
+            // Loop through all the questions
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = document.getElementsByName('q' + i);
+                for (let option of question) {
+                    if (option.checked && option.value == "1") {
+                        correctAnswers++;
+                    }
+                }
+            }
+
+            // Calculate estimated IELTS Band score based on correct answers
+            let bandScore = 0;
+
+            if (correctAnswers >= 18) {
+                bandScore = 8;  // Highest score
+            } else if (correctAnswers >= 15) {
+                bandScore = 7;  // Good performance
+            } else if (correctAnswers >= 12) {
+                bandScore = 6;  // Moderate performance
+            } else if (correctAnswers >= 9) {
+                bandScore = 5;  // Limited performance
+            } else {
+                bandScore = 4;  // Below expectations
+            }
+
+            // Show result
+            let resultText = `Estimated IELTS Band Score: ${bandScore}`;
+            document.getElementById("bandResult").innerText = resultText;
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

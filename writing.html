@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Writing Test Estimator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .question {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .result {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .quiz-container {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>IELTS Writing Test Estimator</h1>
+    <p>Answer the following questions based on your understanding of writing tasks in the IELTS exam.</p>
+
+    <div class="quiz-container">
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <label for="q1">1. What is the recommended length for an IELTS Writing Task 1 response?</label><br>
+                <input type="radio" name="q1" value="1"> 150 words
+                <input type="radio" name="q1" value="0"> 200 words
+                <input type="radio" name="q1" value="0"> 250 words
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <label for="q2">2. Which of the following is NOT a requirement in IELTS Writing Task 2?</label><br>
+                <input type="radio" name="q2" value="1"> Provide a personal opinion on the topic
+                <input type="radio" name="q2" value="0"> Present arguments from both sides of the issue
+                <input type="radio" name="q2" value="0"> Write a letter to a friend
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <label for="q3">3. In Writing Task 2, what is the maximum recommended word count?</label><br>
+                <input type="radio" name="q3" value="0"> 150 words
+                <input type="radio" name="q3" value="0"> 250 words
+                <input type="radio" name="q3" value="1"> 300 words
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <label for="q4">4. In Task 1, when describing a graph or chart, what is important to include?</label><br>
+                <input type="radio" name="q4" value="1"> Main trends and data comparisons
+                <input type="radio" name="q4" value="0"> Personal opinions about the chart
+                <input type="radio" name="q4" value="0"> Detailed explanations of every data point
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <label for="q5">5. What should you avoid in your IELTS Writing Task 2 essay?</label><br>
+                <input type="radio" name="q5" value="0"> Using examples from personal experience
+                <input type="radio" name="q5" value="1"> Using slang or informal language
+                <input type="radio" name="q5" value="0"> Writing an introduction and conclusion
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <label for="q6">6. How many paragraphs should an IELTS Writing Task 2 essay have at a minimum?</label><br>
+                <input type="radio" name="q6" value="1"> 4
+                <input type="radio" name="q6" value="0"> 5
+                <input type="radio" name="q6" value="0"> 3
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <label for="q7">7. Which of the following is true for IELTS Writing Task 2?</label><br>
+                <input type="radio" name="q7" value="0"> You can use bullet points
+                <input type="radio" name="q7" value="1"> You need to provide a clear thesis statement
+                <input type="radio" name="q7" value="0"> You must write about the topic based on personal experience
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <label for="q8">8. In Task 1, which is the best way to organize your description of data?</label><br>
+                <input type="radio" name="q8" value="1"> By summarizing the key points and trends
+                <input type="radio" name="q8" value="0"> By listing the data in a random order
+                <input type="radio" name="q8" value="0"> By providing detailed explanations of every figure
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <label for="q9">9. What is a key feature of an academic essay in IELTS Writing Task 2?</label><br>
+                <input type="radio" name="q9" value="1"> Formal tone and style
+                <input type="radio" name="q9" value="0"> Informal tone and style
+                <input type="radio" name="q9" value="0"> Personal anecdotes
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <label for="q10">10. How should you write the introduction for an IELTS Writing Task 2 essay?</label><br>
+                <input type="radio" name="q10" value="1"> Paraphrase the question and outline your main points
+                <input type="radio" name="q10" value="0"> Write a personal story to engage the reader
+                <input type="radio" name="q10" value="0"> Repeat the exact words from the question
+            </div>
+
+            <!-- Add more questions as needed -->
+
+            <button type="button" class="btn" onclick="calculateScore()">Submit</button>
+        </form>
+
+        <div id="result" class="result">
+            <p id="bandResult"></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let totalQuestions = 10; // Number of questions in the quiz
+            let correctAnswers = 0;
+
+            // Loop through all the questions
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = document.getElementsByName('q' + i);
+                for (let option of question) {
+                    if (option.checked && option.value == "1") {
+                        correctAnswers++;
+                    }
+                }
+            }
+
+            // Calculate estimated IELTS Band score based on correct answers
+            let bandScore = 0;
+
+            // Adjust this to scale the score properly
+            if (correctAnswers >= 9) {
+                bandScore = 8;  // Highest score for full correct answers
+            } else if (correctAnswers >= 7) {
+                bandScore = 7;  // Good performance
+            } else if (correctAnswers >= 5) {
+                bandScore = 6;  // Moderate performance
+            } else if (correctAnswers >= 3) {
+                bandScore = 5;  // Limited performance
+            } else {
+                bandScore = 4;  // Below expectations
+            }
+
+            // Show result
+            let resultText = `Estimated IELTS Band Score: ${bandScore}`;
+            document.getElementById("bandResult").innerText = resultText;
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+  <!-- Home Button -->
+  <a href="index.html" class="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg transition-all text-sm font-semibold">
+    🏠 Home
+  </a>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English AP Quiz for Chinese Learners</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .question-box { margin-bottom: 24px; }
+    .correct-answer { color: green; }
+    .wrong-answer { color: red; }
+  </style>
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="max-w-3xl mx-auto bg-white shadow-xl rounded-xl p-8">
+    <h1 class="text-3xl font-bold text-center text-blue-800 mb-6">English AP Quiz for Non-Native English Learners</h1>
+    <form id="apQuiz">
+      <!-- Question Example -->
+      <div class="question-box">
+        <p class="font-semibold">1. What is the correct form of the verb in this sentence: "She _____ to the store every day."</p>
+        <label><input type="radio" name="q1" value="correct" /> goes</label><br>
+        <label><input type="radio" name="q1" value="wrong" data-tip="'go' must have -es with 'she' (third person singular)."/> go</label><br>
+        <label><input type="radio" name="q1" value="wrong" data-tip="Past tense 'went' is not correct for 'every day'."/> went</label>
+      </div>
+      
+      <!-- Question 20 -->
+<div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">20. What is the antonym of “ancient”?</h2>
+    <input type="radio" name="q20" value="correct" />Modern<br />
+    <input type="radio" name="q20" value="incorrect" />Old<br />
+    <input type="radio" name="q20" value="incorrect" />Historic<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Modern" means recent or current, which is the opposite of "ancient."</p>
+  </div>
+  
+  <!-- Question 21 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">21. Choose the correct sentence:</h2>
+    <input type="radio" name="q21" value="correct" />She doesn’t like apples.<br />
+    <input type="radio" name="q21" value="incorrect" />She don’t like apples.<br />
+    <input type="radio" name="q21" value="incorrect" />She didn’t likes apples.<br />
+    <p class="text-sm text-gray-500 mt-1">Why? Use "doesn’t" for third person singular.</p>
+  </div>
+  
+  <!-- Question 22 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">22. “He ____ to the store yesterday.” Choose the correct verb.</h2>
+    <input type="radio" name="q22" value="correct" />went<br />
+    <input type="radio" name="q22" value="incorrect" />goes<br />
+    <input type="radio" name="q22" value="incorrect" />gone<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Went" is the past tense of "go."</p>
+  </div>
+  
+  <!-- Question 23 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">23. What does “bilingual” mean?</h2>
+    <input type="radio" name="q23" value="correct" />Speaking two languages<br />
+    <input type="radio" name="q23" value="incorrect" />Speaking only one language<br />
+    <input type="radio" name="q23" value="incorrect" />Speaking many languages<br />
+    <p class="text-sm text-gray-500 mt-1">Why? “Bi” means two, “lingual” means language.</p>
+  </div>
+  
+  <!-- Question 24 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">24. Which word is an adjective?</h2>
+    <input type="radio" name="q24" value="correct" />Beautiful<br />
+    <input type="radio" name="q24" value="incorrect" />Quickly<br />
+    <input type="radio" name="q24" value="incorrect" />Run<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Beautiful" describes a noun.</p>
+  </div>
+  
+  <!-- Question 25 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">25. What is the plural form of “child”?</h2>
+    <input type="radio" name="q25" value="correct" />Children<br />
+    <input type="radio" name="q25" value="incorrect" />Childs<br />
+    <input type="radio" name="q25" value="incorrect" />Childes<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Children" is the irregular plural form of "child."</p>
+  </div>
+  
+  <!-- Question 26 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">26. Complete the sentence: “I have lived in Beijing ____ five years.”</h2>
+    <input type="radio" name="q26" value="correct" />for<br />
+    <input type="radio" name="q26" value="incorrect" />since<br />
+    <input type="radio" name="q26" value="incorrect" />in<br />
+    <p class="text-sm text-gray-500 mt-1">Why? Use “for” with a length of time.</p>
+  </div>
+  
+  <!-- Question 27 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">27. “I’m looking forward to ____ you.”</h2>
+    <input type="radio" name="q27" value="correct" />meeting<br />
+    <input type="radio" name="q27" value="incorrect" />meet<br />
+    <input type="radio" name="q27" value="incorrect" />met<br />
+    <p class="text-sm text-gray-500 mt-1">Why? “Looking forward to” is followed by a gerund (-ing form).</p>
+  </div>
+  
+  <!-- Question 28 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">28. Which sentence is correct?</h2>
+    <input type="radio" name="q28" value="correct" />There are some books on the table.<br />
+    <input type="radio" name="q28" value="incorrect" />There is some books on the table.<br />
+    <input type="radio" name="q28" value="incorrect" />There be books on the table.<br />
+    <p class="text-sm text-gray-500 mt-1">Why? Use "are" for plural nouns like “books.”</p>
+  </div>
+  
+  <!-- Question 29 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">29. “Could you help me, ____?”</h2>
+    <input type="radio" name="q29" value="correct" />please<br />
+    <input type="radio" name="q29" value="incorrect" />now<br />
+    <input type="radio" name="q29" value="incorrect" />fast<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Please" makes a polite request.</p>
+  </div>
+  
+  <!-- Question 30 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">30. Which word is a preposition?</h2>
+    <input type="radio" name="q30" value="correct" />under<br />
+    <input type="radio" name="q30" value="incorrect" />run<br />
+    <input type="radio" name="q30" value="incorrect" />quick<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Under" shows position or location.</p>
+  </div>
+  
+  <!-- Question 31 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">31. Choose the correct past tense verb:</h2>
+    <input type="radio" name="q31" value="correct" />saw<br />
+    <input type="radio" name="q31" value="incorrect" />see<br />
+    <input type="radio" name="q31" value="incorrect" />seeing<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Saw" is the past of "see."</p>
+  </div>
+  
+  <!-- Question 32 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">32. What is the opposite of “expensive”?</h2>
+    <input type="radio" name="q32" value="correct" />cheap<br />
+    <input type="radio" name="q32" value="incorrect" />large<br />
+    <input type="radio" name="q32" value="incorrect" />long<br />
+    <p class="text-sm text-gray-500 mt-1">Why? “Cheap” means low cost.</p>
+  </div>
+  
+  <!-- Question 33 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">33. Which is an uncountable noun?</h2>
+    <input type="radio" name="q33" value="correct" />water<br />
+    <input type="radio" name="q33" value="incorrect" />bottles<br />
+    <input type="radio" name="q33" value="incorrect" />chairs<br />
+    <p class="text-sm text-gray-500 mt-1">Why? You can’t count water without a container.</p>
+  </div>
+  
+  <!-- Question 34 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">34. “How ____ apples do you want?”</h2>
+    <input type="radio" name="q34" value="correct" />many<br />
+    <input type="radio" name="q34" value="incorrect" />much<br />
+    <input type="radio" name="q34" value="incorrect" />more<br />
+    <p class="text-sm text-gray-500 mt-1">Why? Use “many” with countable nouns like apples.</p>
+  </div>
+  
+  <!-- Question 35 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">35. Choose the correct comparison:</h2>
+    <input type="radio" name="q35" value="correct" />Faster than<br />
+    <input type="radio" name="q35" value="incorrect" />Fastest than<br />
+    <input type="radio" name="q35" value="incorrect" />More fast<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Faster than" is the correct comparative form.</p>
+  </div>
+  
+  <!-- Question 36 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">36. What does “career” mean?</h2>
+    <input type="radio" name="q36" value="correct" />A long-term job path<br />
+    <input type="radio" name="q36" value="incorrect" />A holiday<br />
+    <input type="radio" name="q36" value="incorrect" />A game<br />
+    <p class="text-sm text-gray-500 mt-1">Why? A career is the work you do over time.</p>
+  </div>
+  
+  <!-- Question 37 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">37. Choose the correct article: “____ elephant is big.”</h2>
+    <input type="radio" name="q37" value="correct" />An<br />
+    <input type="radio" name="q37" value="incorrect" />A<br />
+    <input type="radio" name="q37" value="incorrect" />The<br />
+    <p class="text-sm text-gray-500 mt-1">Why? Use “an” before vowel sounds.</p>
+  </div>
+  
+  <!-- Question 38 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">38. “Don’t forget to bring your umbrella, ____ it rains.”</h2>
+    <input type="radio" name="q38" value="correct" />in case<br />
+    <input type="radio" name="q38" value="incorrect" />so that<br />
+    <input type="radio" name="q38" value="incorrect" />although<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "In case" prepares for a possibility.</p>
+  </div>
+  
+  <!-- Question 39 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">39. Which is a conjunction?</h2>
+    <input type="radio" name="q39" value="correct" />because<br />
+    <input type="radio" name="q39" value="incorrect" />quickly<br />
+    <input type="radio" name="q39" value="incorrect" />money<br />
+    <p class="text-sm text-gray-500 mt-1">Why? Conjunctions connect ideas — like "because."</p>
+  </div>
+  
+  <!-- Question 40 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">40. What is the correct past participle of “eat”?</h2>
+    <input type="radio" name="q40" value="correct" />eaten<br />
+    <input type="radio" name="q40" value="incorrect" />ate<br />
+    <input type="radio" name="q40" value="incorrect" />eated<br />
+    <p class="text-sm text-gray-500 mt-1">Why? "Eaten" is used with “have” in perfect tenses.</p>
+  </div>
+
+      <!-- Submit Button -->
+      <button type="button" onclick="calculateResult()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Submit Quiz</button>
+    </form>
+
+    <!-- Result Output -->
+    <div id="result" class="mt-6 text-lg font-semibold"></div>
+  </div>
+
+  <script>
+    function calculateResult() {
+      const form = document.getElementById('apQuiz');
+      const questions = form.querySelectorAll('.question-box');
+      let score = 0;
+      let feedbackHTML = '<h2 class="text-2xl text-center text-purple-700 mb-4">Your Results</h2>';
+
+      questions.forEach((qBox, index) => {
+        const radios = qBox.querySelectorAll('input[type="radio"]');
+        const selected = Array.from(radios).find(r => r.checked);
+
+        if (selected) {
+          if (selected.value === "correct") {
+            score++;
+            feedbackHTML += `<p class='correct-answer'>Question ${index + 1}: Correct ✅</p>`;
+          } else {
+            const tip = selected.getAttribute('data-tip') || 'Review grammar rules for this topic.';
+            feedbackHTML += `<p class='wrong-answer'>Question ${index + 1}: Incorrect ❌ – Tip: ${tip}</p>`;
+          }
+        } else {
+          feedbackHTML += `<p class='wrong-answer'>Question ${index + 1}: No answer selected ❌</p>`;
+        }
+      });
+
+      const grade = Math.round((score / questions.length) * 100);
+      feedbackHTML = `<p class='text-lg font-bold mb-2'>Final Score: ${score}/${questions.length} (${grade}%)</p>` + feedbackHTML;
+      document.getElementById('result').innerHTML = feedbackHTML;
+    }
+  </script>
+    <!-- Home Button -->
+    <a href="index.html" class="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg transition-all text-sm font-semibold">
+        🏠 Home
+      </a>
+</body>
+</html>

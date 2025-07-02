@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IELTS Synonym/Meaning Quiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8">Multiple Meaning Word Quiz (20 Questions)</h1>
+    <div id="game" class="space-y-6"></div>
+
+    <div class="text-center mt-10">
+      <button onclick="checkAnswers()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow">
+        Submit Answers
+      </button>
+    </div>
+
+    <div id="score" class="text-xl font-semibold text-center mt-6"></div>
+    <div id="corrections" class="mt-8 space-y-4"></div>
+  </div>
+
+  <script>
+    const data = [
+      ["Bat", "He swung the bat with great force.", ["A flying mammal", "A wooden club used in sports", "To blink repeatedly", "An evil creature"], "A wooden club used in sports"],
+      ["Spring", "Flowers bloom in the spring.", ["To jump", "A season of the year", "A coil", "A water source"], "A season of the year"],
+      ["Light", "She carried a light bag to school.", ["Not heavy", "Illuminated", "A matchstick", "Ignited"], "Not heavy"],
+      ["Date", "They went on a date to the museum.", ["A fruit", "An appointment", "A romantic meeting", "A time period"], "A romantic meeting"],
+      ["Tire", "He had to replace a flat tire.", ["To become weary", "A rubber part of a wheel", "To spin rapidly", "To resist"], "A rubber part of a wheel"],
+      ["Row", "They sat in the front row.", ["To paddle a boat", "A fight", "A line of people/things", "An argument"], "A line of people/things"],
+      ["Match", "The soccer match ended in a draw.", ["A stick for fire", "A competition", "A pair", "An identical item"], "A competition"],
+      ["Wave", "He gave a quick wave before leaving.", ["A hand motion", "An ocean swell", "An electrical signal", "A hairstyle"], "A hand motion"],
+      ["Bank", "She deposited money at the bank.", ["Edge of a river", "A financial institution", "To rely on", "A turn in flight"], "A financial institution"],
+      ["Watch", "He wore a silver watch.", ["To look at", "A small timepiece", "A guard duty", "A surveillance act"], "A small timepiece"],
+      ["Rock", "The child threw a rock into the water.", ["To sway", "A stone", "A music genre", "To dance"], "A stone"],
+      ["Can", "Can you help me?", ["A metal container", "To be able to", "To fire someone", "To preserve food"], "To be able to"],
+      ["Well", "She is feeling well now.", ["A water source", "A hole in the ground", "In good health", "A deep thought"], "In good health"],
+      ["Point", "He made a valid point.", ["A sharp tip", "An argument or idea", "A location", "To aim"], "An argument or idea"],
+      ["Seal", "He placed a seal on the envelope.", ["A sea animal", "An official stamp", "To close tightly", "A navy unit"], "An official stamp"],
+      ["Tie", "They decided the game was a tie.", ["To fasten", "A neckwear", "An equal score", "A binding knot"], "An equal score"],
+      ["Ring", "She wore a diamond ring.", ["A sound", "A circular band", "A group of people", "A bell chime"], "A circular band"],
+      ["Break", "Let's take a short break.", ["To shatter", "A rest period", "To run away", "To damage"], "A rest period"],
+      ["Duck", "The duck swam across the lake.", ["To avoid something", "A bird", "To lower your head", "A dive"], "A bird"],
+      ["Current", "The swimmer struggled against the current.", ["Present time", "Electricity", "Flow of water", "Popular trend"], "Flow of water"]
+    ];
+
+    function shuffle(array) {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    }
+
+    const gameContainer = document.getElementById("game");
+
+    data.forEach((item, index) => {
+      const shuffledOptions = shuffle([...item[2]]);
+      const questionHTML = `
+        <div class="bg-white p-5 rounded-lg shadow">
+          <label class="block text-lg font-medium mb-2">${index + 1}. <span class="font-bold">${item[0]}</span> - ${item[1]}</label>
+          <select id="q${index}" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            ${shuffledOptions.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+          </select>
+        </div>
+      `;
+      gameContainer.innerHTML += questionHTML;
+    });
+
+    function checkAnswers() {
+      let score = 0;
+      let resultsHTML = '';
+      data.forEach((item, index) => {
+        const selected = document.getElementById("q" + index).value;
+        const correct = item[3];
+        const isCorrect = selected === correct;
+        if (isCorrect) score++;
+
+        resultsHTML += `
+          <div class="p-4 rounded-lg ${isCorrect ? 'bg-green-100 border border-green-400' : 'bg-red-100 border border-red-400'}">
+            <p class="font-semibold">${index + 1}. ${item[1].replace(item[0], `<span class="underline">${item[0]}</span>`)}</p>
+            <p class="text-sm mt-1">Your answer: <span class="font-medium">${selected}</span></p>
+            ${!isCorrect ? `<p class="text-sm">✅ Correct answer: <span class="font-bold">${correct}</span></p>` : ''}
+          </div>
+        `;
+      });
+
+      document.getElementById("score").innerText = `You scored ${score} out of ${data.length}`;
+      document.getElementById("corrections").innerHTML = resultsHTML;
+    }
+  </script>
+  <!-- Home Button -->
+<a href="index.html" class="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg transition-all text-sm font-semibold">
+    🏠 Home
+  </a>
+  </body>
+</body>
+</html>

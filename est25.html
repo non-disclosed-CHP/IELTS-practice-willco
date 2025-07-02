@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IELTS Mixed Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .question-box {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function calculateBand() {
+      const totalQuestions = 25;
+      let score = 0;
+      const formElements = document.forms["ieltsQuiz"].elements;
+
+      for (let i = 1; i <= totalQuestions; i++) {
+        const selected = formElements["q" + i];
+        if (selected && selected.value === "correct") {
+          score++;
+        }
+      }
+
+      const band = (1 + (score / totalQuestions) * 8).toFixed(1);
+      document.getElementById("result").innerText = "Your estimated band score: " + band;
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-yellow-50 to-white min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white shadow-2xl rounded-2xl p-10 max-w-2xl w-full text-center">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">IELTS Mixed Exam</h1>
+    <p class="text-gray-600 mb-8">Please answer all 25 questions to get your estimated band score:</p>
+
+    <form name="ieltsQuiz" class="space-y-6">
+
+      <!-- Question Template -->
+      <div class="question-box">
+        <h2 class="text-xl font-semibold text-gray-700">1. What is the synonym of "happy"?</h2>
+        <label><input type="radio" name="q1" value="incorrect"> Sad</label><br />
+        <label><input type="radio" name="q1" value="correct"> Joyful</label><br />
+        <label><input type="radio" name="q1" value="incorrect"> Angry</label>
+      </div>
+
+      <div class="question-box">
+        <h2 class="text-xl font-semibold text-gray-700">2. Which of the following is a noun?</h2>
+        <label><input type="radio" name="q2" value="incorrect"> Quickly</label><br />
+        <label><input type="radio" name="q2" value="correct"> Happiness</label><br />
+        <label><input type="radio" name="q2" value="incorrect"> Loudly</label>
+      </div>
+
+      <div class="question-box">
+        <h2 class="text-xl font-semibold text-gray-700">3. What is the antonym of "cold"?</h2>
+        <label><input type="radio" name="q3" value="correct"> Hot</label><br />
+        <label><input type="radio" name="q3" value="incorrect"> Freezing</label><br />
+        <label><input type="radio" name="q3" value="incorrect"> Chill</label>
+      </div>
+
+      <!-- Continue like this for each question (4-25) -->
+      <div class="question-box">
+        <h2 class="text-xl font-semibold text-gray-700">4. Choose the correct spelling:</h2>
+        <label><input type="radio" name="q4" value="incorrect"> Recieve</label><br />
+        <label><input type="radio" name="q4" value="correct"> Receive</label><br />
+        <label><input type="radio" name="q4" value="incorrect"> Receeve</label>
+      </div>
+
+      <div class="question-box">
+        <h2 class="text-xl font-semibold text-gray-700">5. What does "bilingual" mean?</h2>
+        <label><input type="radio" name="q5" value="incorrect"> Someone who likes books</label><br />
+        <label><input type="radio" name="q5" value="correct"> Someone who speaks two languages</label><br />
+        <label><input type="radio" name="q5" value="incorrect"> Someone who can write well</label>
+      </div>
+
+      <!-- Fill in 6 through 25 -->
+      <!-- For demonstration, here’s one more example: -->
+      <div class="question-box">
+        <h2 class="text-xl font-semibold text-gray-700">6. What is the plural of "child"?</h2>
+        <label><input type="radio" name="q6" value="correct"> Children</label><br />
+        <label><input type="radio" name="q6" value="incorrect"> Childs</label><br />
+        <label><input type="radio" name="q6" value="incorrect"> Childer</label>
+      </div>
+
+    <!-- Question 7 -->
+<div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">7. Which word is an adjective?</h2>
+    <label><input type="radio" name="q7" value="incorrect"> Run</label><br />
+    <label><input type="radio" name="q7" value="correct"> Beautiful</label><br />
+    <label><input type="radio" name="q7" value="incorrect"> Quickly</label>
+  </div>
+  
+  <!-- Question 8 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">8. What is the opposite of "increase"?</h2>
+    <label><input type="radio" name="q8" value="incorrect"> Grow</label><br />
+    <label><input type="radio" name="q8" value="incorrect"> Expand</label><br />
+    <label><input type="radio" name="q8" value="correct"> Decrease</label>
+  </div>
+  
+  <!-- Question 9 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">9. "She ___ to the store yesterday."</h2>
+    <label><input type="radio" name="q9" value="correct"> Went</label><br />
+    <label><input type="radio" name="q9" value="incorrect"> Go</label><br />
+    <label><input type="radio" name="q9" value="incorrect"> Goes</label>
+  </div>
+  
+  <!-- Question 10 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">10. Which of the following is a conjunction?</h2>
+    <label><input type="radio" name="q10" value="incorrect"> Quickly</label><br />
+    <label><input type="radio" name="q10" value="correct"> Although</label><br />
+    <label><input type="radio" name="q10" value="incorrect"> Blue</label>
+  </div>
+  
+  <!-- Question 11 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">11. What is the past tense of "buy"?</h2>
+    <label><input type="radio" name="q11" value="correct"> Bought</label><br />
+    <label><input type="radio" name="q11" value="incorrect"> Buys</label><br />
+    <label><input type="radio" name="q11" value="incorrect"> Buyed</label>
+  </div>
+  
+  <!-- Question 12 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">12. Which sentence is correct?</h2>
+    <label><input type="radio" name="q12" value="correct"> She doesn’t like pizza.</label><br />
+    <label><input type="radio" name="q12" value="incorrect"> She don’t like pizza.</label><br />
+    <label><input type="radio" name="q12" value="incorrect"> She doesn’t likes pizza.</label>
+  </div>
+  
+  <!-- Question 13 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">13. Which is a synonym for "start"?</h2>
+    <label><input type="radio" name="q13" value="incorrect"> Stop</label><br />
+    <label><input type="radio" name="q13" value="correct"> Begin</label><br />
+    <label><input type="radio" name="q13" value="incorrect"> End</label>
+  </div>
+  
+  <!-- Question 14 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">14. Choose the correct preposition: "He is good ___ math."</h2>
+    <label><input type="radio" name="q14" value="correct"> At</label><br />
+    <label><input type="radio" name="q14" value="incorrect"> In</label><br />
+    <label><input type="radio" name="q14" value="incorrect"> On</label>
+  </div>
+  
+  <!-- Question 15 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">15. Which is an informal greeting?</h2>
+    <label><input type="radio" name="q15" value="correct"> Hey</label><br />
+    <label><input type="radio" name="q15" value="incorrect"> Good evening</label><br />
+    <label><input type="radio" name="q15" value="incorrect"> How do you do?</label>
+  </div>
+  
+  <!-- Question 16 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">16. What is the plural of "mouse"?</h2>
+    <label><input type="radio" name="q16" value="incorrect"> Mouses</label><br />
+    <label><input type="radio" name="q16" value="correct"> Mice</label><br />
+    <label><input type="radio" name="q16" value="incorrect"> Mouse</label>
+  </div>
+  
+  <!-- Question 17 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">17. Identify the verb: "He quickly ran to the station."</h2>
+    <label><input type="radio" name="q17" value="correct"> Ran</label><br />
+    <label><input type="radio" name="q17" value="incorrect"> Quickly</label><br />
+    <label><input type="radio" name="q17" value="incorrect"> Station</label>
+  </div>
+  
+  <!-- Question 18 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">18. What is the comparative form of "fast"?</h2>
+    <label><input type="radio" name="q18" value="correct"> Faster</label><br />
+    <label><input type="radio" name="q18" value="incorrect"> Fastest</label><br />
+    <label><input type="radio" name="q18" value="incorrect"> Fastly</label>
+  </div>
+  
+  <!-- Question 19 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">19. "They have been living here ___ 2010."</h2>
+    <label><input type="radio" name="q19" value="correct"> Since</label><br />
+    <label><input type="radio" name="q19" value="incorrect"> For</label><br />
+    <label><input type="radio" name="q19" value="incorrect"> From</label>
+  </div>
+  
+  <!-- Question 20 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">20. Which sentence uses the correct article?</h2>
+    <label><input type="radio" name="q20" value="incorrect"> I saw a elephant.</label><br />
+    <label><input type="radio" name="q20" value="correct"> I saw an elephant.</label><br />
+    <label><input type="radio" name="q20" value="incorrect"> I saw the elephant yesterday morning.</label>
+  </div>
+  
+  <!-- Question 21 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">21. "He has a ___ of keys."</h2>
+    <label><input type="radio" name="q21" value="correct"> Bunch</label><br />
+    <label><input type="radio" name="q21" value="incorrect"> Herd</label><br />
+    <label><input type="radio" name="q21" value="incorrect"> Flock</label>
+  </div>
+  
+  <!-- Question 22 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">22. What is the correct question form?</h2>
+    <label><input type="radio" name="q22" value="incorrect"> He is coming?</label><br />
+    <label><input type="radio" name="q22" value="correct"> Is he coming?</label><br />
+    <label><input type="radio" name="q22" value="incorrect"> Comes he?</label>
+  </div>
+  
+  <!-- Question 23 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">23. Choose the correct spelling:</h2>
+    <label><input type="radio" name="q23" value="incorrect"> Suprise</label><br />
+    <label><input type="radio" name="q23" value="correct"> Surprise</label><br />
+    <label><input type="radio" name="q23" value="incorrect"> Serprise</label>
+  </div>
+  
+  <!-- Question 24 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">24. What part of speech is "carefully"?</h2>
+    <label><input type="radio" name="q24" value="correct"> Adverb</label><br />
+    <label><input type="radio" name="q24" value="incorrect"> Noun</label><br />
+    <label><input type="radio" name="q24" value="incorrect"> Adjective</label>
+  </div>
+  
+  <!-- Question 25 -->
+  <div class="question-box">
+    <h2 class="text-xl font-semibold text-gray-700">25. What is the opposite of "noisy"?</h2>
+    <label><input type="radio" name="q25" value="correct"> Quiet</label><br />
+    <label><input type="radio" name="q25" value="incorrect"> Loud</label><br />
+    <label><input type="radio" name="q25" value="incorrect"> Busy</label>
+  </div>
+
+      <!-- Submit Button -->
+      <div class="mt-6 text-center">
+        <button type="button" onclick="calculateBand()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition">
+          Submit and Get Band Estimate
+        </button>
+      </div>
+    </form>
+
+    <div id="result" class="mt-6 text-xl font-bold text-gray-700"></div>
+  </div>
+</body>
+</html>

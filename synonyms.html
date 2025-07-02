@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IELTS Synonym Match</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8">IELTS Synonym Challenge</h1>
+
+    <div id="game" class="space-y-6"></div>
+
+    <div class="text-center mt-10">
+      <button onclick="checkAnswers()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded shadow">
+        Submit Synonyms
+      </button>
+    </div>
+
+    <div id="score" class="text-xl font-semibold text-center mt-6"></div>
+    <div id="corrections" class="mt-8 space-y-4"></div>
+  </div>
+
+  <script>
+    const data = [
+      ["Crucial", "This was a crucial step in the process.", ["trivial", "essential", "random", "light"], "essential"],
+      ["Relevant", "Only relevant points should be discussed.", ["related", "boring", "noisy", "strange"], "related"],
+      ["Harsh", "The winter was especially harsh this year.", ["gentle", "severe", "tender", "calm"], "severe"],
+      ["Remarkable", "Her achievements were truly remarkable.", ["average", "boring", "outstanding", "quiet"], "outstanding"],
+      ["Beneficial", "Daily walks are beneficial to your health.", ["toxic", "useful", "minor", "neutral"], "useful"],
+      ["Consensus", "The team finally reached a consensus.", ["argument", "conflict", "agreement", "debate"], "agreement"],
+      ["Unique", "Each fingerprint is unique.", ["typical", "ordinary", "rare", "identical"], "rare"],
+      ["Extensive", "The flood caused extensive damage.", ["minor", "broad", "tiny", "simple"], "broad"],
+      ["Accurate", "His report was both clear and accurate.", ["wrong", "precise", "false", "vague"], "precise"],
+      ["Volatile", "The situation became volatile quickly.", ["calm", "stable", "explosive", "gentle"], "explosive"]
+    ];
+
+    function shuffle(array) {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    }
+
+    const gameContainer = document.getElementById("game");
+
+    data.forEach((item, index) => {
+      const word = item[0];
+      const sentence = item[1];
+      const options = shuffle([...item[2]]);
+      const questionHTML = `
+        <div class="bg-white p-5 rounded-lg shadow">
+          <label class="block text-lg font-medium mb-2">${index + 1}. What is a synonym of <span class="font-bold text-blue-600">${word}</span>?</label>
+          <p class="italic text-sm mb-3">"${sentence}"</p>
+          <select id="q${index}" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-400">
+            ${options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+          </select>
+        </div>
+      `;
+      gameContainer.innerHTML += questionHTML;
+    });
+
+    function checkAnswers() {
+      let score = 0;
+      let resultsHTML = '';
+
+      data.forEach((item, index) => {
+        const selected = document.getElementById("q" + index).value;
+        const correct = item[3];
+        const isCorrect = selected === correct;
+
+        if (isCorrect) score++;
+
+        resultsHTML += `
+          <div class="p-4 rounded-lg ${isCorrect ? 'bg-green-100 border border-green-400' : 'bg-red-100 border border-red-400'}">
+            <p class="font-semibold">${index + 1}. Synonym of <span class="text-blue-600">${item[0]}</span>: <span class="underline">${selected}</span></p>
+            ${!isCorrect ? `<p class="text-sm mt-1">✅ Correct answer: <span class="font-bold">${correct}</span></p>` : ''}
+          </div>
+        `;
+      });
+
+      document.getElementById("score").innerText = `You got ${score} out of ${data.length} correct!`;
+      document.getElementById("corrections").innerHTML = resultsHTML;
+    }
+  </script>
+  <!-- Home Button -->
+<a href="index.html" class="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg transition-all text-sm font-semibold">
+  🏠 Home
+</a>
+</body>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Reading Test Estimator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .result {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .passage {
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: left;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>IELTS Reading Test Estimator</h1>
+    <p>Read the passages below and answer the questions based on your comprehension.</p>
+
+    <form id="quizForm">
+        <!-- Passage 1 and Question 1 -->
+        <div class="passage">
+            <p><strong>Passage 1:</strong> Mount Everest, located in the Himalayas on the border between Nepal and China, is the highest mountain on Earth, standing at 8,848 meters (29,029 feet) above sea level. First summited in 1953 by Sir Edmund Hillary and Tenzing Norgay, the mountain attracts climbers from around the world. Despite its allure, the climb is dangerous, and many have perished trying to reach the summit due to extreme weather conditions and lack of oxygen at high altitudes.</p>
+        </div>
+        <div class="question">
+            <label for="q1">1. What is Mount Everest known for?</label><br>
+            <input type="radio" name="q1" value="1"> Being the highest mountain on Earth
+            <input type="radio" name="q1" value="0"> Being the most visited tourist destination
+            <input type="radio" name="q1" value="0"> Having the longest hiking trails
+        </div>
+
+        <!-- Passage 2 and Question 2 -->
+        <div class="passage">
+            <p><strong>Passage 2:</strong> Renewable energy sources, such as wind and solar power, have become increasingly important in reducing the world's reliance on fossil fuels. Wind turbines and solar panels convert natural resources into electricity, which can be used to power homes, businesses, and industries. As technology improves, these energy sources are becoming more cost-effective and efficient, providing a cleaner, greener alternative to traditional energy production.</p>
+        </div>
+        <div class="question">
+            <label for="q2">2. How do wind turbines and solar panels help the environment?</label><br>
+            <input type="radio" name="q2" value="1"> By reducing reliance on fossil fuels
+            <input type="radio" name="q2" value="0"> By increasing the production of fossil fuels
+            <input type="radio" name="q2" value="0"> By burning more natural resources
+        </div>
+
+        <!-- Passage 3 and Question 3 -->
+        <div class="passage">
+            <p><strong>Passage 3:</strong> The process of photosynthesis allows plants to convert sunlight into energy. This energy is used by plants to grow, reproduce, and perform various other biological functions. During photosynthesis, plants absorb carbon dioxide from the air and release oxygen, which is essential for life on Earth. This process is crucial for sustaining life on the planet as it supports the food chain and the oxygen supply for animals and humans.</p>
+        </div>
+        <div class="question">
+            <label for="q3">3. What is the role of photosynthesis in plants?</label><br>
+            <input type="radio" name="q3" value="1"> To convert sunlight into energy
+            <input type="radio" name="q3" value="0"> To absorb oxygen from the air
+            <input type="radio" name="q3" value="0"> To produce carbon dioxide
+        </div>
+
+        <button type="button" class="btn" onclick="calculateScore()">Submit</button>
+    </form>
+
+    <div id="result" class="result">
+        <p id="bandResult"></p>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let totalQuestions = 3; // Number of questions
+            let correctAnswers = 0;
+
+            // Loop through all the questions
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = document.getElementsByName('q' + i);
+                for (let option of question) {
+                    if (option.checked && option.value == "1") {
+                        correctAnswers++;
+                    }
+                }
+            }
+
+            // Calculate estimated IELTS Band score based on correct answers
+            let bandScore = 0;
+
+            // Adjust this to scale the score properly
+            if (correctAnswers == 3) {
+                bandScore = 8;  // Highest score for full correct
+            } else if (correctAnswers == 2) {
+                bandScore = 7;  // Good performance
+            } else if (correctAnswers == 1) {
+                bandScore = 5;  // Moderate performance
+            } else {
+                bandScore = 4;  // Poor performance
+            }
+
+            // Show result
+            let resultText = `Estimated IELTS Band Score: ${bandScore}`;
+            document.getElementById("bandResult").innerText = resultText;
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+</html>
